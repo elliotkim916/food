@@ -12,8 +12,8 @@ const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
         style={styles.inputStyle} 
         placeholder="Search"
         value={term}
-        onChangeText={onTermChange} // passing a reference to the function, hey call this function at some point in time when onChangeText occurs 
-        onEndEditing={onTermSubmit} // function will be called when user hits okay or enter
+        onChangeText={(newTerm) => onTermChange(newTerm)} // passing a reference to the function, hey call this function at some point in time when onChangeText occurs 
+        onEndEditing={() => onTermSubmit(term)} // function will be called when user hits okay or enter
       />
     </View>
   );
@@ -22,6 +22,7 @@ const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
 const styles = StyleSheet.create({
   backgroundStyle: {
     marginTop: 10,
+    marginBottom: 10,
     backgroundColor: '#F0EEEE',
     height: 50,
     borderRadius: 5,
